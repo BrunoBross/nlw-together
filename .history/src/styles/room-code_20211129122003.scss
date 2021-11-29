@@ -9,8 +9,6 @@
   
   display: flex;
 
-  transition: filter 0.2s;
-
   div {
     background: #835afd;
     padding: 12px;
@@ -29,7 +27,7 @@
     font-weight: 500;
   }
 
-  &:hover{
+  span:hover{
     filter: brightness(0.9);
   }
 }

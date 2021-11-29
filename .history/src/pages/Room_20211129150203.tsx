@@ -22,6 +22,7 @@ export function Room(){
   const roomId = params.id
   const {title, questions} = useRoom(roomId)
   
+  console.log(title, questions)
   async function handleBackHome(){
     history.push('/');
   }

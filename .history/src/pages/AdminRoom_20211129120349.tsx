@@ -38,7 +38,7 @@ export function AdminRoom(){
     <div id="page-room">
       <header>
         <div className="content">
-        <a href="https://www.rocketseat.com.br/"><img src={logoImg} alt="Letmeask" /></a>
+        <a href="https://www.rocketseat.com.br/"><img src={logoImg} alt="" /></a>
           <div>
             <RoomCode code={roomId}/>
             <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>

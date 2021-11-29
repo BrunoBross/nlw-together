@@ -40,7 +40,8 @@ export function useRoom(roomId: string){
       const databaseRoom = room.val();
       const firebaseQuestions:FirebaseQuestions = databaseRoom.questions;
 
-      if(firebaseQuestions){
+      console.log(firebaseQuestions)
+      if(firebaseQuestions != undefined){
         const parsedQuestions = Object.entries(firebaseQuestions).map(([key, value]) => {
           return{
             id: key,

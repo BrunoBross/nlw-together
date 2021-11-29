@@ -28,7 +28,7 @@ export function Room(){
 
   async function loginBack(){
     if(!user){
-      signInWithGoogle();
+      signInWithGoogle().then(() => history.push('/rooms/new'));
     }
   }
 

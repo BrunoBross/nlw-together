@@ -15,7 +15,7 @@ type RoomParams = {
 }
 
 export function Room(){
-  const {user, signInWithGoogle} = useAuth();
+  const {user} = useAuth();
   const history = useHistory();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
@@ -26,12 +26,6 @@ export function Room(){
     history.push('/');
   }
 
-  async function loginBack(){
-    if(!user){
-      signInWithGoogle();
-    }
-  }
-
   async function handleSendQuestion(event: FormEvent){
     event.preventDefault();
 
@@ -40,7 +34,7 @@ export function Room(){
     }
 
     if(!user){
-      throw new Error('Você precisa estar logado!')
+      throw new Error('You must be logged in')
     }
 
     const question = {
@@ -72,7 +66,7 @@ export function Room(){
     <div id="page-room">
       <header>
         <div className="content">
-          <a href="https://www.rocketseat.com.br/"><img src={logoImg} alt="Letmeask" /></a>
+          <a href=""><img src={logoImg} alt="" /></a>
           <div>
             <RoomCode code={roomId}/>
             <Button isOutlined onClick={handleBackHome}>Voltar ao início</Button>
@@ -82,7 +76,7 @@ export function Room(){
       
       <main>
         <div className="room-title">
-          <h1>{title}</h1>
+          <h1>Sala {title}</h1>
           { questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
 
@@ -100,7 +94,7 @@ export function Room(){
                 <span>{user.name}</span>
               </div>
             ) : (
-              <span>Para enviar uma pergunta, <button onClick={loginBack}>faça seu login</button></span>
+              <span>Para enviar uma pergunta, <button>faça seu login</button></span>
             )}
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </div>

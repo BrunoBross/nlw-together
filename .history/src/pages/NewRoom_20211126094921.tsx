@@ -38,7 +38,7 @@ export function NewRoom(){
       </aside>
       <main>
           <div className="main-content">
-          <a href="https://www.rocketseat.com.br/"><img src={logoImg} alt="Letmeask" /></a>
+            <img src={logoImg} alt="Letmeask" />
             <h2>Criar uma nova sala</h2>
             <form onSubmit={handleCreateRoom}>
               <input

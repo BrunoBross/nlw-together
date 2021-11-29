@@ -19,7 +19,8 @@ export function Home(){
 
   async function handleCreateRoom(){
     if(!user){
-      await signInWithGoogle();
+      signInWithGoogle()
+      console.log()
     }
 
     history.push('/rooms/new');

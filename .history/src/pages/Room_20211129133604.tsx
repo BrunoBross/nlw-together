@@ -28,7 +28,7 @@ export function Room(){
 
   async function loginBack(){
     if(!user){
-      signInWithGoogle();
+      signInWithGoogle().then(() => history.push('/rooms/new'));
     }
   }
 
@@ -100,7 +100,7 @@ export function Room(){
                 <span>{user.name}</span>
               </div>
             ) : (
-              <span>Para enviar uma pergunta, <button onClick={loginBack}>faça seu login</button></span>
+              <span>Para enviar uma pergunta, <button>faça seu login</button></span>
             )}
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </div>

@@ -29,7 +29,7 @@
     font-weight: 500;
   }
 
-  &:hover{
+  &:not(div):hover{
     filter: brightness(0.9);
   }
 }

@@ -15,7 +15,7 @@ type RoomParams = {
 }
 
 export function Room(){
-  const {user, signInWithGoogle} = useAuth();
+  const {user} = useAuth();
   const history = useHistory();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
@@ -24,12 +24,6 @@ export function Room(){
   
   async function handleBackHome(){
     history.push('/');
-  }
-
-  async function loginBack(){
-    if(!user){
-      signInWithGoogle();
-    }
   }
 
   async function handleSendQuestion(event: FormEvent){
@@ -42,6 +36,8 @@ export function Room(){
     if(!user){
       throw new Error('Você precisa estar logado!')
     }
+
+    const roomRef = database.ref('rooms');
 
     const question = {
       content: newQuestion,
@@ -82,7 +78,7 @@ export function Room(){
       
       <main>
         <div className="room-title">
-          <h1>{title}</h1>
+          <h1>Sala {title}</h1>
           { questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
 
@@ -100,7 +96,7 @@ export function Room(){
                 <span>{user.name}</span>
               </div>
             ) : (
-              <span>Para enviar uma pergunta, <button onClick={loginBack}>faça seu login</button></span>
+              <span>Para enviar uma pergunta, <button>faça seu login</button></span>
             )}
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
           </div>
