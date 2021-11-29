@@ -46,9 +46,9 @@ export function Room(){
     setNewQuestion('');
   }
 
-  async function handleLikeQuestion(questionId: string, likeId: string | undefined){
-    if(likeId){
-      await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
+  async function handleLikeQuestion(questionId: string, hasLiked: boolean){
+    if(hasLiked){
+      
     } else{
       await database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({
         authorId: user?.id,
