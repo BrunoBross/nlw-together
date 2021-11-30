@@ -16,6 +16,10 @@
 
 <br>
 
+## Deploy
+
+O projeto também pode ser visualizado através desse [LINK](https://letmeask-7cad1.web.app/)
+
 ## 🧪 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
