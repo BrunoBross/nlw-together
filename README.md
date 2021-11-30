@@ -1,3 +1,11 @@
+# nlw-together
+---
+Projeto Letmeask @Rocketseat
+
+## Layout
+
+![url](https://i.imgur.com/zAY6Hte.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
