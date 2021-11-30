@@ -3,10 +3,13 @@
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
-  transition: 0.2s;
 
   & + .question{
     margin-top: 8px;
+  }
+
+  &.answered{
+    
   }
 
   &.highlighted{
@@ -16,10 +19,6 @@
     footer .user-info span{
       color: #29292e;
     }
-  }
-
-  &.answered{
-    background-color: #dbdbdb;
   }
 
   p{

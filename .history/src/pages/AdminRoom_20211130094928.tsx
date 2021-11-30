@@ -77,7 +77,7 @@ export function AdminRoom(){
                 isHighlighted={question.isHighlighted}
               > 
                 {!question.isAnswered && (
-                  <>
+                  <div>
                     <button
                     type="button"
                     onClick={() => handleCheckQuestionAsAnswered(question.id)}
@@ -91,7 +91,7 @@ export function AdminRoom(){
                     >
                       <img src={answerImg} alt="Dar destaque à pergunta" />
                     </button>
-                  </>
+                  </div>
                 )}
 
                 <button
