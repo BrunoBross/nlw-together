@@ -30,7 +30,6 @@ type QuestionType = {
 
 export function useRoom(roomId: string){
   const { user } = useAuth();
-  const [endedAt, setEndedAt] = useState('');
   const [authorId, setAuthorId] = useState('');
   const [title, setTitle] = useState('');
   const [questions, setQuestions] = useState<QuestionType[]>([]);
@@ -54,7 +53,6 @@ export function useRoom(roomId: string){
         }
       })
 
-      setEndedAt(databaseRoom.endedAt);
       setTitle(databaseRoom.title);
       setAuthorId(databaseRoom.authorId);
       setQuestions(parsedQuestions);
@@ -65,5 +63,5 @@ export function useRoom(roomId: string){
     }
   }, [roomId, user?.id]);
 
-  return{questions, title, authorId, endedAt};
+  return{questions, title, authorId};
 }

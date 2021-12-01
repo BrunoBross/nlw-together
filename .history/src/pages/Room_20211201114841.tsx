@@ -91,15 +91,16 @@ export function Room(){
 
   async function loginBack(){
     if(!user){
-      signInWithGoogle();
+      await signInWithGoogle();
     }
   }
 
   async function handleLikeQuestion(questionId: string, likeId: string | undefined){
+    loginBack()
     if(likeId){
-      database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
+      await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
     } else{
-      database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({
+      await database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({
         authorId: user?.id,
       })
     }
@@ -135,14 +136,14 @@ export function Room(){
                   <span>{user.name}</span>
                 </div>
               ) : (
-                <span>Para visualizar ou enviar uma pergunta, <button onClick={loginBack}>faça seu login</button></span>
+                <span>Para enviar uma pergunta, <button onClick={loginBack}>faça seu login</button></span>
               )}
               <Button type="submit" disabled={!user}>Enviar pergunta</Button>
             </div>
           </form>
 
           <div className="question-list">
-            {user && questions.map(question => {
+            {questions.map(question => {
               return (
                 <Question
                   key={question.id}

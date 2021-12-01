@@ -96,6 +96,10 @@ export function Room(){
   }
 
   async function handleLikeQuestion(questionId: string, likeId: string | undefined){
+    if(!user){
+      await signInWithGoogle();
+    }
+
     if(likeId){
       database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
     } else{
@@ -103,6 +107,7 @@ export function Room(){
         authorId: user?.id,
       })
     }
+    
   }
 
   return(
@@ -135,7 +140,7 @@ export function Room(){
                   <span>{user.name}</span>
                 </div>
               ) : (
-                <span>Para visualizar ou enviar uma pergunta, <button onClick={loginBack}>faça seu login</button></span>
+                <span>Para ver ou enviar uma pergunta, <button onClick={loginBack}>faça seu login</button></span>
               )}
               <Button type="submit" disabled={!user}>Enviar pergunta</Button>
             </div>

@@ -96,6 +96,10 @@ export function Room(){
   }
 
   async function handleLikeQuestion(questionId: string, likeId: string | undefined){
+    if(!user){
+      await signInWithGoogle();
+    }
+
     if(likeId){
       database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
     } else{
@@ -103,6 +107,7 @@ export function Room(){
         authorId: user?.id,
       })
     }
+    
   }
 
   return(
